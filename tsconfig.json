@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+      "lib": ["es6"],
+      "outDir": "./dist",
+      "allowSyntheticDefaultImports": true,
+      "esModuleInterop": true,
+      "target": "es6",
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "sourceMap": true,
+      "noImplicitAny": true,
+      "noFallthroughCasesInSwitch": true,
+      "noImplicitReturns": true,
+      "stripInternal": true,
+      "pretty": true,
+      "strictNullChecks": true,
+      "noUnusedLocals": false,
+      "downlevelIteration": true,
+      "rootDir": ".",
+      "declaration": true,
+      "declarationMap": true,
+      "resolveJsonModule": true
+  },
+  "include": ["lib/**/*"],
+  "exclude": ["node_modules"]
+}

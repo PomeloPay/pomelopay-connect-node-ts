@@ -62,12 +62,14 @@ See below for more details about each resource.
 ### 💰 __Transactions__
 
 ##### Get a single creation
+https://docs.pomelopay.com/docs/connect/12ec79b138bce-get-transaction
 
 ```node
 const transaction = await client.transactions.get('<transaction-id>')
 ```
 
 ##### Create a transaction
+https://docs.pomelopay.com/docs/connect/7778c88abc14b-create-transaction-v2
 
 The below example includes a lot of optional fields to give an extensive detail on what's possible. As a minimum just `currency` and `amount` is required.
 
@@ -97,23 +99,29 @@ const transaction = await client.transactions.create({
     })
 ```
 
+You can then redirect the user to the `transaction.url` or `transaction.vendorUrl` to complete card payment.
+You can also display the QR code image for the users to scan from `transaction.qr.url`. 
+
 ### 💼 __Companies__
+
+##### Get your company details
+https://docs.pomelopay.com/docs/connect/e0574ed2792c2-get-company
 
 ```node
 const company = await client.companies.get()
 ```
 
-##### Get your company details
-
 ### 🔐 __Tokens__
 
 ##### Get list of tokens for a customer
+https://docs.pomelopay.com/docs/connect/809153cac2c6a-get-list-of-tokens-for-customer
 
 ```node
 const tokens = await client.tokens.getList(<customer-id>)
 ```
 
 ##### Get a single token
+https://docs.pomelopay.com/docs/connect/9d65f123f944e-get-single-token-for-customer
 
 ```node
 const token = await client.tokens.get(<customer-id>, <token-id>)
@@ -133,6 +141,7 @@ const client = new Client({appId: <your-app-id>, apiKey: <your-api-key>, directC
 ```
 
 ##### Single Card Payment
+https://docs.pomelopay.com/docs/pomelo-pay-pci-connect/3f679981bd5e2-direct-card-payments
 
 ```node
 
@@ -150,6 +159,7 @@ const client = new Client({appId: <your-app-id>, apiKey: <your-api-key>, directC
 This returns a `nextAction` URL that you can redirect to for the customer to complete card authentication with their bank.
 
 ##### Customer Initiated Tokenised Payment
+https://docs.pomelopay.com/docs/pomelo-pay-pci-connect/339c0ea39d9ab-customer-initiated-stored-credentials
 
 ```node
 
@@ -163,6 +173,7 @@ const customerInitiated = await client.cardPayments.customerInitiatedStoredCrede
 This returns a `nextAction` URL that you can redirect to for the customer to complete card authentication with their bank.
 
 ##### Merchant Initiated Tokenised Payment
+https://docs.pomelopay.com/docs/pomelo-pay-pci-connect/ca602830ad71b-merchant-initiated-stored-credentials
 
 ```node
 

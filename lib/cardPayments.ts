@@ -4,7 +4,6 @@ import { SinglePaymentRequest } from './cardPayments/singlePayment.types'
 import { StoredCredentialCustomerInitiated } from './cardPayments/storedCredentialCustomerInitiated.types'
 import { StoredCredentialMerchantInitiated } from './cardPayments/storedCredentialMerchantInitiated.types'
 import Client from './common/client'
-import { Hosts } from './config/hosts'
 
 
 export default class CardPayments {

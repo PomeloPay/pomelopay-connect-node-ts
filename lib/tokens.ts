@@ -1,5 +1,5 @@
 import Client from './common/client'
-import { Hosts } from './config/hosts'
+import { Config, Hosts } from './config/hosts'
 import { Token } from './tokenization/tokens.types'
 
 export default class Tokens {
@@ -22,8 +22,8 @@ export default class Tokens {
 
     private getBaseUrl(): string {
         if(this.client.sandbox) {
-            return Hosts.customertApiSandbox
+            return Hosts.customertApiSandbox.replace('[tenantSandboxDomain]', Config.tenantSandboxDomain)
         }
-        return Hosts.customerApiProduction
+        return Hosts.customerApiProduction.replace('[tenantDomain]', Config.tenantDomain)
     }
 }

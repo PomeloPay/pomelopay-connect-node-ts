@@ -1,9 +1,10 @@
 import axios, { Axios, AxiosDefaults } from 'axios'
 import { merge, omit } from 'lodash'
-import Transactions from '../transaction'
+import Transactions from '../transactions'
 import CardPayments from '../cardPayments'
-import { Hosts } from '../config/hosts'
+import { Config, Hosts } from '../config/hosts'
 import Tokens from '../tokens'
+import Companies from '../companies'
 
 interface RequestOptions {
     url: string
@@ -24,6 +25,7 @@ export default class Client {
     axiosInstance: Axios
     transactions: Transactions
     tokens: Tokens
+    companies: Companies
     cardPayments?: CardPayments
     requestOpts: Partial<AxiosDefaults>
     propertiesToOmitInRequestOpts: string[]
@@ -53,6 +55,7 @@ export default class Client {
         } else {
             this.transactions = new Transactions(this)
             this.tokens = new Tokens(this)
+            this.companies = new Companies(this)
         }
 
         this.requestOpts = {
@@ -110,16 +113,16 @@ export default class Client {
     getBaseUrl(args: Constructor): string {
         if(args.directCardAuthenticationHost) {
             if(args.sandbox) {
-                return Hosts.cardPaymentApiSandbox
+                return Hosts.cardPaymentApiSandbox.replace('[tenantSandboxDomain]', Config.tenantSandboxDomain)
             }
-            return Hosts.cardPaymentApiProduction
+            return Hosts.cardPaymentApiProduction.replace('[tenantDomain]', Config.tenantDomain)
         }
 
         if(args.sandbox) {
-            return Hosts.merchantApiSandbox
+            return Hosts.merchantApiSandbox.replace('[tenantSandboxDomain]', Config.tenantSandboxDomain)
         }
 
-        return Hosts.merchantApiProduction
+        return Hosts.merchantApiProduction.replace('[tenantDomain]', Config.tenantDomain)
     }
 
     async post<T>({ url, data }: RequestOptions): Promise<T> {

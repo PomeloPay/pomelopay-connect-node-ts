@@ -13,7 +13,7 @@ Using this  Client you can interact with your Pomelo Pay Connect API:
 - Requires NodeJS 8 or higher
 - For contributing with development of this client: requires TypeScript 4
 
-The recommended way to install pomelopay-connect-php is through [NPM](https://npmjs.com):
+The recommended way to install pomelopay-connect-node-ts is through [NPM](https://npmjs.com):
 
 To get started, just install the package:
 

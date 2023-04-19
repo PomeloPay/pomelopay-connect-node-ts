@@ -50,7 +50,7 @@ import Client from 'pomelopay-connect-node-ts'
 const client = new Client({appId: <your-app-id>, apiKey: <your-api-key>, directCardAuthenticationHost: true})
 
  // sandbox client
-const client = new Client({appId: <your-app-id>, apiKey: <your-api-key>, directCardAuthenticationHost: true, sandbox true})
+const client = new Client({appId: <your-app-id>, apiKey: <your-api-key>, directCardAuthenticationHost: true, sandbox: true})
 ```
 
 ## Available API Operations

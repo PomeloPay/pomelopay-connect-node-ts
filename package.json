@@ -24,7 +24,7 @@
   "author": "Simon Verraest",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.24.0",
+    "axios": "^1.8.2",
     "htmlencode": "^0.0.4",
     "lodash": "^4.17.21",
     "moment": "^2.29.4"
